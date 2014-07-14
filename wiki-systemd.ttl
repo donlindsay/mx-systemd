@@ -1,0 +1,78 @@
+@prefix : <http://vorlon/xk#> .
+@prefix xs: <http://www.w3.org/2001/XMLSchema#> .
+@prefix err: <http://www.w3.org/2005/xqt-errors#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix fn: <http://www.w3.org/2005/xpath-functions#> .
+@prefix pimo: <http://http://www.semanticdesktop.org/ontologies/2007/11/01/pimo#> . 
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+:wp-systemd :from :Wikipedia ;
+    a :document ;
+    a :systemd ;
+    :operating-system 	:linux ;
+    a :init-daemon ;
+    :license 	"GNU LGPL 2.1+" ;
+    :Website 	"freedesktop.org/…/systemd/" ;
+    :description """
+        systemd is a system management daemon designed
+        exclusively for the Linux kernel API. For systems
+        using it, it is the first process to execute in
+        user space during the Linux startup
+        process. Therefore, it is also the parent process
+        of all child processes in user space. The name
+        systemd adheres to the Unix convention of making
+        daemons easier to distinguish by appending the
+        letter d to the filename. """ ;
+        :Overview """
+
+    Systemd was developed for Linux to replace the
+    init system inherited from UNIX System V and
+    Berkeley Software Distribution (BSD) operating
+    systems. Like init, systemd is a daemon that
+    manages other daemons. All daemons, including
+    systemd, are background processes. Systemd is the
+    first daemon to start (during booting) and the
+    last daemon to terminate (during shutdown).
+
+    Lennart Poettering and Kay Sievers, the software
+    engineers who initially developed systemd,[1]
+    sought to surpass the efficiency of the init
+    daemon in several ways. They wanted to improve the
+    software framework for expressing dependencies; to
+    allow more processing to be done concurrently or
+    in parallel during system booting; and to reduce
+    the computational overhead of the shell.""" ;
+        :seeAlso :Software-architecture ;
+        :seeAlso :Linux-startup-process ;
+        :systemd-components :initialization-instructions ;
+        :for-each :daemon ;
+        :are :recorded-in ;
+        :subProperty :declarative-configuration ;
+        :declarative-configuration :file-rather-than-a-shell-script ;
+        :inter-process-communication :domain-sockets ;
+        :inter-process-communication :D-Bus ;
+        :tracks :processes ;
+        :auxiliary :Calendar-Timers ;
+        :auxiliary :journal ;
+        :log :systemd-log ;
+        :log :syslog ;
+        :systemd-log :binary ;
+        :state :snapshot ;
+        :mergedWith :udev ;
+        :replaces :sysvinit ,
+        :pm-utils , 
+        :inetd , 
+        :acpid , 
+        :syslog , 
+        :watchdog , 
+        :cron ,
+        :atd ;
+        :has :integrated-login-manager ;
+        :integrated-login-manager :systemd-logind ;
+        :has :userspace-utility-programs ;
+        :integrated-with :networkd .
+
+
+
