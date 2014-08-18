@@ -1,4 +1,4 @@
-systemd-functions
-=================
+mx-systemd
+===
 
-Systemd related functions and code.
+Systemd features for GNU Emacs.
